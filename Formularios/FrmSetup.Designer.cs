@@ -62,7 +62,8 @@ namespace ControleEstoque.Formularios
             txtProdutoMov = new TextBox();
             label1 = new Label();
             dtMov = new DateTimePicker();
-            tabPage3 = new TabPage();
+            tbBalanco = new TabPage();
+            grpFiltros = new GroupBox();
             tbFormSetup.SuspendLayout();
             tbProdutos.SuspendLayout();
             grpProduto.SuspendLayout();
@@ -71,13 +72,14 @@ namespace ControleEstoque.Formularios
             grpMov.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgMovimentacao).BeginInit();
             grpPeriodo.SuspendLayout();
+            tbBalanco.SuspendLayout();
             SuspendLayout();
             // 
             // tbFormSetup
             // 
             tbFormSetup.Controls.Add(tbProdutos);
             tbFormSetup.Controls.Add(tbMovimentacao);
-            tbFormSetup.Controls.Add(tabPage3);
+            tbFormSetup.Controls.Add(tbBalanco);
             tbFormSetup.Dock = DockStyle.Fill;
             tbFormSetup.Location = new Point(0, 0);
             tbFormSetup.Name = "tbFormSetup";
@@ -504,18 +506,31 @@ namespace ControleEstoque.Formularios
             dtMov.TabIndex = 1;
             dtMov.ValueChanged += dateTimePicker1_ValueChanged;
             // 
-            // tabPage3
+            // tbBalanco
             // 
-            tabPage3.Location = new Point(4, 29);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1050, 731);
-            tabPage3.TabIndex = 2;
+            tbBalanco.Controls.Add(grpFiltros);
+            tbBalanco.Location = new Point(4, 29);
+            tbBalanco.Name = "tbBalanco";
+            tbBalanco.Size = new Size(1050, 731);
+            tbBalanco.TabIndex = 2;
+            tbBalanco.Text = "Balanço";
+            // 
+            // grpFiltros
+            // 
+            grpFiltros.Location = new Point(3, 3);
+            grpFiltros.Name = "grpFiltros";
+            grpFiltros.Size = new Size(1044, 176);
+            grpFiltros.TabIndex = 1;
+            grpFiltros.TabStop = false;
+            grpFiltros.Text = "Filtros";
             // 
             // FrmSetup
             // 
             ClientSize = new Size(1058, 764);
             Controls.Add(tbFormSetup);
+            MaximizeBox = false;
             Name = "FrmSetup";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmSetup";
             tbFormSetup.ResumeLayout(false);
             tbProdutos.ResumeLayout(false);
@@ -529,6 +544,7 @@ namespace ControleEstoque.Formularios
             ((System.ComponentModel.ISupportInitialize)dgMovimentacao).EndInit();
             grpPeriodo.ResumeLayout(false);
             grpPeriodo.PerformLayout();
+            tbBalanco.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -537,7 +553,7 @@ namespace ControleEstoque.Formularios
         private TabControl tbFormSetup;
         private TabPage tbProdutos;
         private TabPage tbMovimentacao;
-        private TabPage tabPage3;
+        private TabPage tbBalanco;
         private DataGridView dataGridView1;
         private GroupBox grpProduto;
 
@@ -584,5 +600,6 @@ namespace ControleEstoque.Formularios
         private Button btnSalvarMov;
         private Button btnExcluirMov;
         private TextBox txtObservacaoMov;
+        private GroupBox grpFiltros;
     }
 }

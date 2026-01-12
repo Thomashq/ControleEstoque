@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            lblPesqProd = new Label();
-            txtProduto = new TextBox();
             btnPesquisar = new Button();
+            txtProduto = new TextBox();
+            lblPesqProd = new Label();
             dataGridView1 = new DataGridView();
             btnConfirmar = new Button();
             btnCancelar = new Button();
@@ -51,22 +51,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Pesquisar Produto";
             // 
-            // lblPesqProd
-            // 
-            lblPesqProd.AutoSize = true;
-            lblPesqProd.Location = new Point(6, 38);
-            lblPesqProd.Name = "lblPesqProd";
-            lblPesqProd.Size = new Size(127, 20);
-            lblPesqProd.TabIndex = 0;
-            lblPesqProd.Text = "Pesquisar Produto";
-            // 
-            // txtProduto
-            // 
-            txtProduto.Location = new Point(6, 61);
-            txtProduto.Name = "txtProduto";
-            txtProduto.Size = new Size(377, 27);
-            txtProduto.TabIndex = 1;
-            // 
             // btnPesquisar
             // 
             btnPesquisar.Location = new Point(405, 61);
@@ -75,6 +59,22 @@
             btnPesquisar.TabIndex = 2;
             btnPesquisar.Text = "Pesquisar";
             btnPesquisar.UseVisualStyleBackColor = true;
+            // 
+            // txtProduto
+            // 
+            txtProduto.Location = new Point(6, 61);
+            txtProduto.Name = "txtProduto";
+            txtProduto.Size = new Size(377, 27);
+            txtProduto.TabIndex = 1;
+            // 
+            // lblPesqProd
+            // 
+            lblPesqProd.AutoSize = true;
+            lblPesqProd.Location = new Point(6, 38);
+            lblPesqProd.Name = "lblPesqProd";
+            lblPesqProd.Size = new Size(127, 20);
+            lblPesqProd.TabIndex = 0;
+            lblPesqProd.Text = "Pesquisar Produto";
             // 
             // dataGridView1
             // 
@@ -103,6 +103,7 @@
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // FrmPesquisaProduto
             // 
