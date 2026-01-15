@@ -114,6 +114,7 @@
             // 
             // tbProdutos
             // 
+            tbProdutos.BackColor = SystemColors.ActiveCaption;
             tbProdutos.Controls.Add(btnPesquisarProduto);
             tbProdutos.Controls.Add(txtPesqProduto);
             tbProdutos.Controls.Add(lblPesqProduto);
@@ -129,7 +130,7 @@
             // 
             // btnPesquisarProduto
             // 
-            btnPesquisarProduto.Location = new Point(311, 39);
+            btnPesquisarProduto.Location = new Point(288, 36);
             btnPesquisarProduto.Name = "btnPesquisarProduto";
             btnPesquisarProduto.Size = new Size(94, 29);
             btnPesquisarProduto.TabIndex = 6;
@@ -265,52 +266,61 @@
             // 
             // btnSalvar
             // 
+            btnSalvar.BackColor = SystemColors.ButtonHighlight;
             btnSalvar.Location = new Point(568, 107);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(121, 42);
             btnSalvar.TabIndex = 6;
             btnSalvar.Text = "Salvar";
+            btnSalvar.UseVisualStyleBackColor = false;
             btnSalvar.Click += btnSalvar_Click;
             // 
             // btnExcluir
             // 
+            btnExcluir.BackColor = SystemColors.ButtonHighlight;
             btnExcluir.Location = new Point(569, 175);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(120, 42);
             btnExcluir.TabIndex = 7;
             btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = false;
             btnExcluir.Click += btnExcluir_Click;
             // 
             // btnNovo
             // 
+            btnNovo.BackColor = SystemColors.ButtonHighlight;
             btnNovo.Location = new Point(869, 480);
             btnNovo.Name = "btnNovo";
             btnNovo.Size = new Size(128, 29);
             btnNovo.TabIndex = 1;
             btnNovo.Text = "Novo Produto";
+            btnNovo.UseVisualStyleBackColor = false;
             btnNovo.Click += btnNovo_Click;
             // 
             // btnEditar
             // 
+            btnEditar.BackColor = SystemColors.ButtonHighlight;
             btnEditar.Location = new Point(1017, 480);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 2;
             btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeight = 29;
-            dataGridView1.Location = new Point(0, 89);
+            dataGridView1.Location = new Point(156, 80);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1135, 362);
+            dataGridView1.Size = new Size(823, 362);
             dataGridView1.TabIndex = 3;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // tbMovimentacao
             // 
+            tbMovimentacao.BackColor = SystemColors.ActiveCaption;
             tbMovimentacao.Controls.Add(grpMov);
             tbMovimentacao.Controls.Add(btnEditarMov);
             tbMovimentacao.Controls.Add(btnNovaMov);
@@ -492,10 +502,10 @@
             // dgMovimentacao
             // 
             dgMovimentacao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgMovimentacao.Location = new Point(8, 128);
+            dgMovimentacao.Location = new Point(176, 128);
             dgMovimentacao.Name = "dgMovimentacao";
             dgMovimentacao.RowHeadersWidth = 51;
-            dgMovimentacao.Size = new Size(1130, 395);
+            dgMovimentacao.Size = new Size(751, 395);
             dgMovimentacao.TabIndex = 1;
             dgMovimentacao.SelectionChanged += dgMovimentacao_SelectionChanged;
             // 
@@ -548,6 +558,7 @@
             // 
             // tbBalanco
             // 
+            tbBalanco.BackColor = SystemColors.ActiveCaption;
             tbBalanco.Controls.Add(btnCancelarCsv);
             tbBalanco.Controls.Add(btnExportarCsv);
             tbBalanco.Controls.Add(label5);
@@ -566,7 +577,7 @@
             // 
             // btnCancelarCsv
             // 
-            btnCancelarCsv.Location = new Point(585, 659);
+            btnCancelarCsv.Location = new Point(589, 659);
             btnCancelarCsv.Name = "btnCancelarCsv";
             btnCancelarCsv.Size = new Size(139, 47);
             btnCancelarCsv.TabIndex = 8;
@@ -575,7 +586,7 @@
             // 
             // btnExportarCsv
             // 
-            btnExportarCsv.Location = new Point(402, 659);
+            btnExportarCsv.Location = new Point(406, 659);
             btnExportarCsv.Name = "btnExportarCsv";
             btnExportarCsv.Size = new Size(139, 47);
             btnExportarCsv.TabIndex = 7;
@@ -586,7 +597,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            label5.Location = new Point(449, 308);
+            label5.Location = new Point(472, 308);
             label5.Name = "label5";
             label5.Size = new Size(204, 30);
             label5.TabIndex = 6;
@@ -595,9 +606,9 @@
             // dvgMovimentacoesBalanco
             // 
             dvgMovimentacoesBalanco.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgMovimentacoesBalanco.Location = new Point(199, 341);
+            dvgMovimentacoesBalanco.Location = new Point(234, 353);
             dvgMovimentacoesBalanco.Name = "dvgMovimentacoesBalanco";
-            dvgMovimentacoesBalanco.Size = new Size(737, 239);
+            dvgMovimentacoesBalanco.Size = new Size(669, 239);
             dvgMovimentacoesBalanco.TabIndex = 5;
             // 
             // grpValorTotal
@@ -676,7 +687,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            label4.Location = new Point(506, 142);
+            label4.Location = new Point(511, 142);
             label4.Name = "label4";
             label4.Size = new Size(105, 30);
             label4.TabIndex = 2;

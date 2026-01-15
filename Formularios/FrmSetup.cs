@@ -55,6 +55,7 @@ namespace ControleEstoque.Formularios
             BloquearFormulario();
             BloquearFormularioMov();
             ConfigurarBalanco();
+            ConfigurarGridMovimentacoes();
             CarregarProdutos();
             CarregarMovimentacoes();
         }
@@ -265,6 +266,80 @@ namespace ControleEstoque.Formularios
                 _produtoMovSelecionadoId = frm.ProdutoSelecionado.Id;
                 txtProdutoModal.Text = frm.ProdutoSelecionado.Nome;
             }
+        }
+
+
+        private void ConfigurarGridMovimentacoes()
+        {
+            dgMovimentacao.AutoGenerateColumns = false;
+            dgMovimentacao.ReadOnly = true;
+            dgMovimentacao.AllowUserToAddRows = false;
+            dgMovimentacao.AllowUserToDeleteRows = false;
+            dgMovimentacao.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgMovimentacao.MultiSelect = false;
+            dgMovimentacao.RowHeadersVisible = false;
+
+            dgMovimentacao.Columns.Clear();
+
+            dgMovimentacao.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "NomeProduto",
+                HeaderText = "Produto",
+                Width = 250
+            });
+
+            dgMovimentacao.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Tipo",
+                HeaderText = "Tipo",
+                Width = 80
+            });
+
+            dgMovimentacao.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Quantidade",
+                HeaderText = "Qtd",
+                Width = 70,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Alignment = DataGridViewContentAlignment.MiddleRight
+                }
+            });
+
+            dgMovimentacao.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "ValorUnitario",
+                HeaderText = "Valor Unit.",
+                Width = 100,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "N2",
+                    Alignment = DataGridViewContentAlignment.MiddleRight
+                }
+            });
+
+            dgMovimentacao.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "ValorTotal",
+                HeaderText = "Total",
+                Width = 110,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "C2",
+                    Alignment = DataGridViewContentAlignment.MiddleRight
+                }
+            });
+
+            dgMovimentacao.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "DataHoraMovimentacao",
+                HeaderText = "Data/Hora",
+                Width = 140,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "dd/MM/yyyy HH:mm"
+                }
+            });
         }
 
         #endregion
