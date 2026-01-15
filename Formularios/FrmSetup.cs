@@ -54,7 +54,7 @@ namespace ControleEstoque.Formularios
 
             BloquearFormulario();
             BloquearFormularioMov();
-
+            ConfigurarBalanco();
             CarregarProdutos();
             CarregarMovimentacoes();
         }
@@ -114,7 +114,7 @@ namespace ControleEstoque.Formularios
             produto.PrecoVenda = decimal.Parse(txtValorVenda.Text);
 
             if (_produtoSelecionado == null)
-                produto.EstoqueAtual = int.Parse(txtQuantidade.Text);
+                produto.EstoqueAtual = decimal.Parse(txtQuantidade.Text);
 
             if (produto.DataCadastro == DateTime.MinValue)
                 produto.DataCadastro = DateTime.Now;
@@ -196,7 +196,7 @@ namespace ControleEstoque.Formularios
 
             cmbTipoMov.SelectedItem = _movSelecionada.Tipo;
             txtQuantMov.Text = _movSelecionada.Quantidade.ToString();
-            txtValorUnitario.Text = _movSelecionada.ValorUnitario.ToString("N2");
+            txtValorUnit.Text = _movSelecionada.ValorUnitario.ToString("N2");
             txtObservacaoMov.Text = _movSelecionada.Observacao;
 
             _produtoMovSelecionadoId = _movSelecionada.ProdutoId;
@@ -232,8 +232,8 @@ namespace ControleEstoque.Formularios
 
             mov.ProdutoId = _produtoMovSelecionadoId;
             mov.Tipo = cmbTipoMov.SelectedItem.ToString();
-            mov.Quantidade = int.Parse(txtQuantMov.Text);
-            mov.ValorUnitario = decimal.Parse(txtValorUnitario.Text);
+            mov.Quantidade = decimal.Parse(txtQuantMov.Text);
+            mov.ValorUnitario = decimal.Parse(txtValorUnit.Text);
             mov.Observacao = txtObservacaoMov.Text;
             mov.DataMovimentacao = dtMov.Value.Date;
             mov.HoraMovimentacao = DateTime.Now.TimeOfDay;
@@ -307,7 +307,7 @@ namespace ControleEstoque.Formularios
         private void LimparFormularioMov()
         {
             txtQuantMov.Text = "0";
-            txtValorUnitario.Text = "0,00";
+            txtValorUnit.Text = "0,00";
             txtObservacaoMov.Clear();
         }
 
@@ -316,7 +316,7 @@ namespace ControleEstoque.Formularios
             cmbTipoMov.Enabled = false;
             txtProdutoModal.Enabled = false;
             txtQuantMov.Enabled = false;
-            txtValorUnitario.Enabled = false;
+            txtValorUnit.Enabled = false;
             txtObservacaoMov.Enabled = false;
 
             btnSalvarMov.Enabled = false;
@@ -327,7 +327,7 @@ namespace ControleEstoque.Formularios
         {
             cmbTipoMov.Enabled = true;
             txtQuantMov.Enabled = true;
-            txtValorUnitario.Enabled = true;
+            txtValorUnit.Enabled = true;
             txtObservacaoMov.Enabled = true;
 
             btnSalvarMov.Enabled = true;
@@ -343,6 +343,134 @@ namespace ControleEstoque.Formularios
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
                 e.Handled = true;
         }
+
+        #endregion
+
+        #region  BALANCO
+        private void ConfigurarBalanco()
+        {
+            rdHoje.Checked = true;
+
+            dtpInicial.Enabled = false;
+            dtpFinal.Enabled = false;
+
+            dvgMovimentacoesBalanco.AutoGenerateColumns = false;
+            dvgMovimentacoesBalanco.ReadOnly = true;
+            dvgMovimentacoesBalanco.AllowUserToAddRows = false;
+            dvgMovimentacoesBalanco.AllowUserToDeleteRows = false;
+            dvgMovimentacoesBalanco.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dvgMovimentacoesBalanco.MultiSelect = false;
+
+            ConfigurarColunasBalanco();
+        }
+
+        private void rdHoje_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdHoje.Checked)
+            {
+                dtpInicial.Enabled = false;
+                dtpFinal.Enabled = false;
+            }
+        }
+
+        private void rdPeriodo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdPeriodo.Checked)
+            {
+                dtpInicial.Enabled = true;
+                dtpFinal.Enabled = true;
+            }
+        }
+
+
+        private void btnGerarBalanco_Click(object sender, EventArgs e)
+        {
+            DateTime inicio;
+            DateTime fim;
+
+            if (rdHoje.Checked)
+            {
+                inicio = DateTime.Today;
+                fim = DateTime.Today.AddDays(1).AddTicks(-1);
+            }
+            else
+            {
+                inicio = dtpInicial.Value.Date;
+                fim = dtpFinal.Value.Date.AddDays(1).AddTicks(-1);
+            }
+
+            CarregarBalanco(inicio, fim);
+        }
+
+        private void CarregarBalanco(DateTime inicio, DateTime fim)
+        {
+            var db = new DatabaseContext();
+            var lista = db.GetMovimentacoesPorPeriodo(inicio, fim);
+
+            dvgMovimentacoesBalanco.DataSource = lista;
+
+            AtualizarResumoBalanco(lista);
+        }
+
+        private void AtualizarResumoBalanco(List<Movimentacao> lista)
+        {
+            var entradas = lista
+                .Where(x => x.Tipo == "Entrada")
+                .Sum(x => x.Quantidade);
+
+            var saidas = lista
+                .Where(x => x.Tipo == "Saída")
+                .Sum(x => x.Quantidade);
+
+            var valorTotal = lista.Sum(x => x.ValorTotal);
+
+            lblEntradasValor.Text = entradas.ToString();
+            lblSaidasValor.Text = saidas.ToString();
+            lblSaldoValor.Text = (entradas - saidas).ToString();
+            lblValorTotalValor.Text = valorTotal.ToString("C2");
+        }
+
+        private void ConfigurarColunasBalanco()
+        {
+            dvgMovimentacoesBalanco.Columns.Clear();
+
+            dvgMovimentacoesBalanco.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "DataHoraMovimentacao",
+                HeaderText = "Data/Hora",
+                Width = 140
+            });
+
+            dvgMovimentacoesBalanco.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "NomeProduto",
+                HeaderText = "Produto",
+                Width = 250
+            });
+
+            dvgMovimentacoesBalanco.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Tipo",
+                HeaderText = "Tipo",
+                Width = 80
+            });
+
+            dvgMovimentacoesBalanco.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Quantidade",
+                HeaderText = "Qtd",
+                Width = 60
+            });
+
+            dvgMovimentacoesBalanco.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "ValorTotal",
+                HeaderText = "Valor Total",
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "C2" }
+            });
+        }
+
+
 
         #endregion
     }

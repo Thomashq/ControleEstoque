@@ -12,7 +12,7 @@ namespace ControleEstoque.Models
 
         public string Tipo { get; set; }
 
-        public int Quantidade { get; set; }
+        public decimal Quantidade { get; set; }
 
         public decimal ValorUnitario { get; set; }
 

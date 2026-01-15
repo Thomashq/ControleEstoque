@@ -17,9 +17,9 @@ namespace ControleEstoque.Models
 
         public decimal PrecoVenda { get; set; }
 
-        public int EstoqueAtual { get; set; }
+        public decimal EstoqueAtual { get; set; }
 
-        public int EstoqueMinimo { get; set; }
+        public decimal EstoqueMinimo { get; set; }
 
         public DateTime DataCadastro { get; set; }
     }

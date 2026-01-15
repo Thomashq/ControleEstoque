@@ -5,9 +5,9 @@ namespace ControleEstoque.Service
     {
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
-        public int TotalEntradas { get; set; }
+        public decimal TotalEntradas { get; set; }
         public decimal ValorEntradas { get; set; }
-        public int TotalSaidas { get; set; }
+        public decimal TotalSaidas { get; set; }
         public decimal ValorSaidas { get; set; }
         public int TotalProdutos { get; set; }
         public decimal ValorEstoqueAtual { get; set; }
