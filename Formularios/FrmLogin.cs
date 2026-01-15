@@ -23,10 +23,13 @@ namespace ControleEstoque.Formularios
         {
             if (IsLoginValido())
             {
-                FrmSetup frmSetup = new FrmSetup();
-                frmSetup.Show();
+                using (var frmSetup = new FrmSetup())
+                {
+                    this.Hide();
+                    frmSetup.ShowDialog();
+                }
 
-                this.Hide(); // esconde o login
+                this.Close();
             }
             else
             {
