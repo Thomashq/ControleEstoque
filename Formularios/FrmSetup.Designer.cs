@@ -148,9 +148,10 @@
             // lblPesqProduto
             // 
             lblPesqProduto.AutoSize = true;
+            lblPesqProduto.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblPesqProduto.Location = new Point(16, 17);
             lblPesqProduto.Name = "lblPesqProduto";
-            lblPesqProduto.Size = new Size(103, 15);
+            lblPesqProduto.Size = new Size(107, 15);
             lblPesqProduto.TabIndex = 4;
             lblPesqProduto.Text = "Pesquisar Produto";
             // 
@@ -204,6 +205,7 @@
             // 
             // lblNome
             // 
+            lblNome.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblNome.Location = new Point(35, 57);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(100, 23);
@@ -219,6 +221,7 @@
             // 
             // lblDescricao
             // 
+            lblDescricao.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblDescricao.Location = new Point(35, 130);
             lblDescricao.Name = "lblDescricao";
             lblDescricao.Size = new Size(100, 23);
@@ -235,6 +238,7 @@
             // 
             // lblPrecoCompra
             // 
+            lblPrecoCompra.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblPrecoCompra.Location = new Point(325, 70);
             lblPrecoCompra.Name = "lblPrecoCompra";
             lblPrecoCompra.Size = new Size(100, 23);
@@ -243,6 +247,7 @@
             // 
             // lblPrecoVenda
             // 
+            lblPrecoVenda.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblPrecoVenda.Location = new Point(325, 124);
             lblPrecoVenda.Name = "lblPrecoVenda";
             lblPrecoVenda.Size = new Size(100, 23);
@@ -251,6 +256,7 @@
             // 
             // lblQuantidade
             // 
+            lblQuantidade.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblQuantidade.Location = new Point(325, 175);
             lblQuantidade.Name = "lblQuantidade";
             lblQuantidade.Size = new Size(100, 23);
@@ -387,27 +393,30 @@
             // lblObservacaoMov
             // 
             lblObservacaoMov.AutoSize = true;
+            lblObservacaoMov.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblObservacaoMov.Location = new Point(13, 129);
             lblObservacaoMov.Name = "lblObservacaoMov";
-            lblObservacaoMov.Size = new Size(69, 15);
+            lblObservacaoMov.Size = new Size(72, 15);
             lblObservacaoMov.TabIndex = 10;
             lblObservacaoMov.Text = "Observação";
             // 
             // lblValorUnit
             // 
             lblValorUnit.AutoSize = true;
+            lblValorUnit.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblValorUnit.Location = new Point(462, 122);
             lblValorUnit.Name = "lblValorUnit";
-            lblValorUnit.Size = new Size(102, 15);
+            lblValorUnit.Size = new Size(109, 15);
             lblValorUnit.TabIndex = 8;
             lblValorUnit.Text = "Valor Unitário (R$)";
             // 
             // lblQuantMov
             // 
             lblQuantMov.AutoSize = true;
+            lblQuantMov.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblQuantMov.Location = new Point(462, 61);
             lblQuantMov.Name = "lblQuantMov";
-            lblQuantMov.Size = new Size(69, 15);
+            lblQuantMov.Size = new Size(71, 15);
             lblQuantMov.TabIndex = 6;
             lblQuantMov.Text = "Quantidade";
             // 
@@ -434,9 +443,10 @@
             // lblProdutoMov
             // 
             lblProdutoMov.AutoSize = true;
+            lblProdutoMov.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblProdutoMov.Location = new Point(222, 46);
             lblProdutoMov.Name = "lblProdutoMov";
-            lblProdutoMov.Size = new Size(50, 15);
+            lblProdutoMov.Size = new Size(52, 15);
             lblProdutoMov.TabIndex = 3;
             lblProdutoMov.Text = "Produto";
             // 
@@ -452,6 +462,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label2.Location = new Point(13, 46);
             label2.Name = "label2";
             label2.Size = new Size(31, 15);
@@ -520,9 +531,10 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label1.Location = new Point(6, 24);
             label1.Name = "label1";
-            label1.Size = new Size(50, 15);
+            label1.Size = new Size(52, 15);
             label1.TabIndex = 1;
             label1.Text = "Produto";
             // 
@@ -574,7 +586,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            label5.Location = new Point(457, 306);
+            label5.Location = new Point(449, 308);
             label5.Name = "label5";
             label5.Size = new Size(204, 30);
             label5.TabIndex = 6;
@@ -583,7 +595,7 @@
             // dvgMovimentacoesBalanco
             // 
             dvgMovimentacoesBalanco.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgMovimentacoesBalanco.Location = new Point(200, 339);
+            dvgMovimentacoesBalanco.Location = new Point(199, 341);
             dvgMovimentacoesBalanco.Name = "dvgMovimentacoesBalanco";
             dvgMovimentacoesBalanco.Size = new Size(737, 239);
             dvgMovimentacoesBalanco.TabIndex = 5;
