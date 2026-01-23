@@ -9,18 +9,26 @@ namespace ControleEstoque.Data
 
         public DatabaseContext()
         {
-            var dbPath = Path.Combine(
+            var appDataDir = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "ControleEstoque",
+                "ControleEstoque"
+            );
+
+            if (!Directory.Exists(appDataDir))
+                Directory.CreateDirectory(appDataDir);
+
+            var dbPath = Path.Combine(appDataDir, "estoque.db");
+
+            var dbOrigem = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
                 "estoque.db"
             );
 
-            // Criar diretório se não existir
-            var directory = Path.GetDirectoryName(dbPath);
-            if (!Directory.Exists(directory))
-                Directory.CreateDirectory(directory);
+            if (!File.Exists(dbPath))
+                File.Copy(dbOrigem, dbPath);
 
             _database = new SQLiteConnection(dbPath);
+
             _database.CreateTable<Produto>();
             _database.CreateTable<Movimentacao>();
         }

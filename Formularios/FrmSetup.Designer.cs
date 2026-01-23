@@ -61,8 +61,6 @@
             label1 = new Label();
             dtMov = new DateTimePicker();
             tbBalanco = new TabPage();
-            btnCancelarCsv = new Button();
-            btnExportarCsv = new Button();
             label5 = new Label();
             dvgMovimentacoesBalanco = new DataGridView();
             grpValorTotal = new GroupBox();
@@ -559,8 +557,6 @@
             // tbBalanco
             // 
             tbBalanco.BackColor = SystemColors.ActiveCaption;
-            tbBalanco.Controls.Add(btnCancelarCsv);
-            tbBalanco.Controls.Add(btnExportarCsv);
             tbBalanco.Controls.Add(label5);
             tbBalanco.Controls.Add(dvgMovimentacoesBalanco);
             tbBalanco.Controls.Add(grpValorTotal);
@@ -574,24 +570,6 @@
             tbBalanco.Size = new Size(1138, 788);
             tbBalanco.TabIndex = 2;
             tbBalanco.Text = "Balanço";
-            // 
-            // btnCancelarCsv
-            // 
-            btnCancelarCsv.Location = new Point(589, 659);
-            btnCancelarCsv.Name = "btnCancelarCsv";
-            btnCancelarCsv.Size = new Size(139, 47);
-            btnCancelarCsv.TabIndex = 8;
-            btnCancelarCsv.Text = "Cancelar";
-            btnCancelarCsv.UseVisualStyleBackColor = true;
-            // 
-            // btnExportarCsv
-            // 
-            btnExportarCsv.Location = new Point(406, 659);
-            btnExportarCsv.Name = "btnExportarCsv";
-            btnExportarCsv.Size = new Size(139, 47);
-            btnExportarCsv.TabIndex = 7;
-            btnExportarCsv.Text = "Exportar";
-            btnExportarCsv.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -608,7 +586,7 @@
             dvgMovimentacoesBalanco.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgMovimentacoesBalanco.Location = new Point(234, 353);
             dvgMovimentacoesBalanco.Name = "dvgMovimentacoesBalanco";
-            dvgMovimentacoesBalanco.Size = new Size(669, 239);
+            dvgMovimentacoesBalanco.Size = new Size(669, 371);
             dvgMovimentacoesBalanco.TabIndex = 5;
             // 
             // grpValorTotal
@@ -624,10 +602,11 @@
             // lblValorTotalValor
             // 
             lblValorTotalValor.AutoSize = true;
-            lblValorTotalValor.Location = new Point(59, 40);
+            lblValorTotalValor.Location = new Point(67, 42);
             lblValorTotalValor.Name = "lblValorTotalValor";
             lblValorTotalValor.Size = new Size(0, 15);
             lblValorTotalValor.TabIndex = 10;
+            lblValorTotalValor.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // grpSaldo
             // 
@@ -642,10 +621,11 @@
             // lblSaldoValor
             // 
             lblSaldoValor.AutoSize = true;
-            lblSaldoValor.Location = new Point(55, 40);
+            lblSaldoValor.Location = new Point(61, 42);
             lblSaldoValor.Name = "lblSaldoValor";
             lblSaldoValor.Size = new Size(0, 15);
             lblSaldoValor.TabIndex = 9;
+            lblSaldoValor.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // grpSaidas
             // 
@@ -660,10 +640,11 @@
             // lblSaidasValor
             // 
             lblSaidasValor.AutoSize = true;
-            lblSaidasValor.Location = new Point(51, 39);
+            lblSaidasValor.Location = new Point(60, 42);
             lblSaidasValor.Name = "lblSaidasValor";
             lblSaidasValor.Size = new Size(0, 15);
             lblSaidasValor.TabIndex = 11;
+            lblSaidasValor.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // grpEntradas
             // 
@@ -678,10 +659,11 @@
             // lblEntradasValor
             // 
             lblEntradasValor.AutoSize = true;
-            lblEntradasValor.Location = new Point(40, 39);
+            lblEntradasValor.Location = new Point(56, 42);
             lblEntradasValor.Name = "lblEntradasValor";
             lblEntradasValor.Size = new Size(0, 15);
             lblEntradasValor.TabIndex = 10;
+            lblEntradasValor.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -884,8 +866,6 @@
         private Label label4;
         private Label label5;
         private DataGridView dvgMovimentacoesBalanco;
-        private Button btnExportarCsv;
-        private Button btnCancelarCsv;
         private Label lblValorTotalValor;
         private Label lblSaldoValor;
         private Label lblSaidasValor;
